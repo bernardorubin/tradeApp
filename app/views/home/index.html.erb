@@ -1,3 +1,12 @@
-<h1>Home#index</h1>
-<h1> CHUY <h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Full Response</h1>
+<p><%=@response.body %></p>
+<hr>
+<% JSON.parse(@response.body).each do |x| %>
+  <h3>Loop 2</h3>
+  <p><%= x %></p>
+  <hr>
+  <% x.each do |y|  %>
+  <h3>Loop 3</h3>
+    <p><%= y %></p>
+  <% end %>
+<% end %>
