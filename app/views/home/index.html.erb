@@ -74,7 +74,7 @@
  <hr>
  <br>
 
-  <h1>Trades</h1>
+  <h1>Trades (Last 100)</h1>
   <table class="table">
     <thead>
       <tr>
@@ -92,7 +92,7 @@
       <td><%= @date[x] %></td>
       <td><%= @amount[x] %></td>
       <td><%= @price[x] %></td>
-      <td><%= @maker_side[x] %></td>
+      <td><%= @maker_side[x].capitalize %></td>
       <td><%= @trade_id[x] %></td>
     </tr>
     <% end %>
