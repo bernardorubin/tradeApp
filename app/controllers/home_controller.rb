@@ -1,12 +1,14 @@
 class HomeController < ApplicationController
   def index
-    @response = Faraday.get 'https://api.bitso.com/v3/available_books'
+    @response_available_books = Faraday.get 'https://api.bitso.com/v3/available_books'
     @response_ticker = Faraday.get 'https://api.bitso.com/v3/ticker/'
-    # conn = Faraday.new(:url => 'https://api.bitso.com/v3')
-    # response = conn.get '/available_books'
+
+    # hardcoded params until conn is working!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    @response_book_btc = Faraday.get 'https://api.bitso.com/v3/order_book?book=btc_mxn&aggregate=true'
+
 
     # render json:@response.body
-     @all = JSON.parse(@response.body)
+     @all = JSON.parse(@response_available_books.body)
      @fx = []
      @minimum_price = []
      @minimum_amount = []
@@ -20,7 +22,6 @@ class HomeController < ApplicationController
        @maximum_price << x["maximum_price"]
        @maximum_amount << x["maximum_amount"]
     end
-
 
 
      @all_ticker = JSON.parse(@response_ticker.body)
@@ -43,5 +44,26 @@ class HomeController < ApplicationController
        @ask << y["ask"]
        @bid << y["bid"]
      end
+
+
+
+     @book_btc = JSON.parse(@response_book_btc.body)
+     @bids_prices = []
+     @asks_prices = []
+    #  Uncomment if needed
+    #  @bids_amounts = []
+    #  @asks_amounts = []
+     @payload_book = @book_btc["payload"]
+     @updated = @payload_book["updated_at"]
+     @bids = @payload_book["bids"]
+     @bids.each do |y|
+       @bids_prices.push(y["price"])
+     end
+     @asks = @payload_book["asks"]
+     @asks.each do |y|
+       @asks_prices.push(y["price"])
+     end
+
+
   end
 end

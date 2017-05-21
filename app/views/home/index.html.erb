@@ -1,4 +1,6 @@
 <div class="container">
+<br>
+<h1>Books</h1>
 <table class="table">
   <thead>
     <tr>
@@ -11,7 +13,7 @@
   </thead>
     <% @fx.length.times do |x| %>
   <tr>
-    <td><%= @fx[x] %></td>
+    <td><%= @fx[x].upcase %></td>
     <td><%= @minimum_price[x] %></td>
     <td><%= @maximum_price[x] %></td>
     <td><%= @minimum_amount[x] %></td>
@@ -19,41 +21,55 @@
   </tr>
   <% end %>
 </table>
-
-<br>
 <hr>
 <br>
 
+<h1>Ticker</h1>
 <table class="table">
-  <thead>
-    <tr>
-      <th>FX</th>
-      <th>Volume</th>
-      <th>High</th>
-      <th>Last</th>
-      <th>Low</th>
-      <th>Average</th>
-      <th>Ask</th>
-      <th>Bid</th>
-    </tr>
-  </thead>
-    <% @fy.length.times do |x| %>
-  <tr>
-    <td><%= @fy[x] %></td>
-    <td><%= @volume[x] %></td>
-    <td><%= @high[x] %></td>
-    <td><%= @last[x] %></td>
-    <td><%= @low[x] %></td>
-    <td><%= @average[x] %></td>
-    <td><%= @ask[x] %></td>
-    <td><%= @bid[x] %></td>
-  </tr>
-  <% end %>
-</table>
+   <thead>
+     <tr>
+       <th>FX</th>
+       <th>Volume</th>
+       <th>High</th>
+       <th>Last</th>
+       <th>Low</th>
+       <th>Average</th>
+       <th>Ask</th>
+       <th>Bid</th>
+     </tr>
+   </thead>
+     <% @fy.length.times do |x| %>
+   <tr>
+     <td><%= @fy[x].upcase %></td>
+     <td><%= @volume[x] %></td>
+     <td><%= @high[x] %></td>
+     <td><%= @last[x] %></td>
+     <td><%= @low[x] %></td>
+     <td><%= @average[x] %></td>
+     <td><%= @ask[x] %></td>
+     <td><%= @bid[x] %></td>
+   </tr>
+   <% end %>
+ </table>
+<hr>
+<br>
 
 
+<h1>BOOK:  BTC-MXN</h1>
+<p>Updated:</p>
+<p><%= @updated %></p>
+<h4>BIDS:</h4>
+<p><%= @bids_prices %></p>
 <%= line_chart [[["date0"], 3],
-                [["date1"], 9],
-                [["date2"], 5],
-                [["date3"], 2]]%>
+               [["date1"], 9],
+               [["date2"], 5],
+               [["date3"], 2]]%>
+<br>
+<h4>ASKS:</h4>
+<p><%= @asks_prices %></p>
+<%= line_chart [[["date0"], 3],
+               [["date1"], 9],
+               [["date2"], 5],
+               [["date3"], 2]]%>
+
 </div>
