@@ -5,6 +5,9 @@ class HomeController < ApplicationController
 
     # hardcoded params until conn is working!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     @response_book_btc = Faraday.get 'https://api.bitso.com/v3/order_book?book=btc_mxn&aggregate=true'
+    @response_trades_btc = Faraday.get 'https://api.bitso.com/v3/trades?book=btc_mxn&sort=desc&limit=100'
+
+
 
 
     # render json:@response.body
@@ -62,6 +65,25 @@ class HomeController < ApplicationController
      @asks = @payload_book["asks"]
      @asks.each do |y|
        @asks_prices.push(y["price"])
+     end
+
+
+     @trades_btc = JSON.parse(@response_trades_btc.body)
+     @fz = []
+     @date = []
+     @amount = []
+     @side = []
+     @price = []
+     @maker_side = []
+     @trade_id = []
+     @payload_trades = @trades_btc["payload"]
+     @payload_trades.each do |y|
+       @fz << y["book"]
+       @date << y["created_at"]
+       @amount << y["amount"]
+       @maker_side << y["maker_side"]
+       @price << y["price"]
+       @trade_id << y["tid"]
      end
 
 
