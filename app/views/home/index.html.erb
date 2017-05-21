@@ -1,12 +1,14 @@
-<h1>Full Response</h1>
-<p><%=@response.body %></p>
-<hr>
 <% JSON.parse(@response.body).each do |x| %>
-  <h3>Loop 2</h3>
-  <p><%= x %></p>
-  <hr>
-  <% x.each do |y|  %>
-  <h3>Loop 3</h3>
-    <p><%= y %></p>
-  <% end %>
+  <p>x[0]<%= x[0] %></p>
+  <p>x[1]<%= x[1] %></p>
+<% end %>
+
+
+<% @all = JSON.parse(@response.body) %>
+
+<%= @payload = @all["payload"] %>
+<% @payload.each do |x| %>
+<!-- Poner aquí código -->
+<!-- Pushear cada uno a una array o algo -->
+  <%= x["book"] %>
 <% end %>
