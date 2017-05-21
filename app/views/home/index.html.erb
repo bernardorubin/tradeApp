@@ -1,14 +1,51 @@
-<% JSON.parse(@response.body).each do |x| %>
-  <p>x[0]<%= x[0] %></p>
-  <p>x[1]<%= x[1] %></p>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>FX</th>
+      <th>Minimum price</th>
+      <th>Maximum price</th>
+      <th>Minimum amount</th>
+      <th>Maximum amount</th>
+    </tr>
+  </thead>
+    <% @fx.length.times do |x| %>
+  <tr>
+    <td><%= @fx[x] %></td>
+    <td><%= @minimum_price[x] %></td>
+    <td><%= @maximum_price[x] %></td>
+    <td><%= @minimum_amount[x] %></td>
+    <td><%= @maximum_amount[x] %></td>
+  </tr>
+  <% end %>
+</table>
 
+<br>
+<hr>
+<br>
 
-<% @all = JSON.parse(@response.body) %>
-
-<%= @payload = @all["payload"] %>
-<% @payload.each do |x| %>
-<!-- Poner aquí código -->
-<!-- Pushear cada uno a una array o algo -->
-  <%= x["book"] %>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>FX</th>
+      <th>Volume</th>
+      <th>High</th>
+      <th>Last</th>
+      <th>Low</th>
+      <th>Average</th>
+      <th>Ask</th>
+      <th>Bid</th>
+    </tr>
+  </thead>
+    <% @fy.length.times do |x| %>
+  <tr>
+    <td><%= @fy[x] %></td>
+    <td><%= @volume[x] %></td>
+    <td><%= @high[x] %></td>
+    <td><%= @last[x] %></td>
+    <td><%= @low[x] %></td>
+    <td><%= @average[x] %></td>
+    <td><%= @ask[x] %></td>
+    <td><%= @bid[x] %></td>
+  </tr>
+  <% end %>
+</table>
