@@ -1,31 +1,6 @@
 <div class="container">
-<%= flash[:message] %>
-  <!-- <br>
-  <h1>Books</h1>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>FX</th>
-        <th>Minimum price</th>
-        <th>Maximum price</th>
-        <th>Minimum amount</th>
-        <th>Maximum amount</th>
-      </tr>
-    </thead>
-      <% @fx.length.times do |x| %>
-    <tr>
-      <td><%= @fx[x].upcase %></td>
-      <td><%= @minimum_price[x] %></td>
-      <td><%= @maximum_price[x] %></td>
-      <td><%= @minimum_amount[x] %></td>
-      <td><%= @maximum_amount[x] %></td>
-    </tr>
-    <% end %>
-  </table>
-  <hr>
-  <br> -->
 
-  <h1>Ticker</h1>
+  <h1>BITSO</h1>
   <table class="table">
      <thead>
        <tr>
@@ -55,124 +30,171 @@
   <hr>
   <br>
 
-  <h1>BOOK:  BTC-MXN</h1>
-  <h4>Updated:</h4>
-  <p><%= @updated_btc %></p>
-  <h4>BIDS:</h4>
-  <h4>Highest: <%= @bids_prices_btc.max %></h4>
-  <p><%= @bids_prices_btc %></p>
-  <h4>ASKS:</h4>
-  <h4>Lowest: <%= @asks_prices_btc.min %></h4>
-  <p><%= @asks_prices_btc %></p>
-  <!-- <%= line_chart [[["date0"], 3],
-                 [["date1"], 9],
-                 [["date2"], 5],
-                 [["date3"], 2]]%> -->
- <hr>
- <br>
-
-  <h1>Trades (Last 10)</h1>
+  <h1>SHAPESHIFT</h1>
   <table class="table">
-    <thead>
-      <tr>
-        <th>FX</th>
-        <th>Date</th>
-        <th>Amount</th>
-        <th>Price</th>
-        <th>Maker Side</th>
-        <th>Trade ID</th>
-      </tr>
-    </thead>
-      <% @fx_btc.length.times do |x| %>
-    <tr>
-      <td><%= @fx_btc[x].upcase %></td>
-      <td><%= @date_btc[x] %></td>
-      <td><%= @amount_btc[x] %></td>
-      <td><%= @price_btc[x] %></td>
-      <td><%= @maker_side_btc[x].capitalize %></td>
-      <td><%= @trade_id_btc[x] %></td>
-    </tr>
-    <% end %>
-  </table>
+     <thead>
+       <tr>
+         <th>FX</th>
+         <th>Price</th>
+       </tr>
+     </thead>
+       <% @mega_array1.each_with_index do |x, index| %>
+     <tr>
+       <td><%= @mega_array1[index] %></td>
+       <td><%= @mega_array2[index] %></td>
+     </tr>
+     <% end %>
+   </table>
   <hr>
-  <br>
+
+<h1>Differences</h1>
+<table class="table">
+   <thead>
+     <tr>
+       <th>FX</th>
+       <th>PriceBITSO</th>
+       <th>PriceSS</th>
+       <th>PercentChange</th>
+     </tr>
+   </thead>
+   <tr>
+     <td>ETH_BTC</td>
+     <td><%= @last[4] %></td>
+     <td><%= @mega_array2[1] %></td>
+     <td><%= (@last[4] / @mega_array2[1] -1) * 100 %></td>
+   </tr>
+   <tr>
+     <td>BTC_ETH</td>
+     <td>NO</td>
+     <td><%= @mega_array2[0] %></td>
+     <td>NO</td>
+   </tr>
+   <tr>
+     <td>ETH_XRP</td>
+     <td>NO</td>
+     <td><%= @mega_array2[5] %></td>
+     <td>NO</td>
+   </tr>
+   <tr>
+     <td>XRP_ETH</td>
+     <td>NO</td>
+     <td><%= @mega_array2[4] %></td>
+     <td>NO</td>
+   </tr>
+   <tr>
+     <td>BTC_XRP</td>
+     <td>NO</td>
+     <td><%= @mega_array2[3] %></td>
+     <td>NO</td>
+   </tr>
+   <tr>
+     <td>XRP_BTC</td>
+     <td><%= @last[2] %></td>
+     <td><%= @mega_array2[2] %></td>
+     <td><%= (@last[2] / @mega_array2[2] -1) * 100 %></td>
+   </tr>
+
+ </table>
+<hr>
 
 
-  <h1>BOOK:  ETH-MXN</h1>
-  <h4>Updated:</h4>
-  <p><%= @updated_eth %></p>
-  <h4>BIDS:</h4>
-  <h4>Highest: <%= @bids_prices_eth.max %></h4>
-  <p><%= @bids_prices_eth %></p>
-  <h4>ASKS:</h4>
-  <h4>Lowest: <%= @asks_prices_eth.min %></h4>
-  <p><%= @asks_prices_eth %></p>
- <hr>
- <br>
-
-  <h1>Trades (Last 10)</h1>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>FX</th>
-        <th>Date</th>
-        <th>Amount</th>
-        <th>Price</th>
-        <th>Maker Side</th>
-        <th>Trade ID</th>
-      </tr>
-    </thead>
-      <% @fx_eth.length.times do |x| %>
-    <tr>
-      <td><%= @fx_eth[x].upcase %></td>
-      <td><%= @date_eth[x] %></td>
-      <td><%= @amount_eth[x] %></td>
-      <td><%= @price_eth[x] %></td>
-      <td><%= @maker_side_eth[x].capitalize %></td>
-      <td><%= @trade_id_eth[x] %></td>
-    </tr>
-    <% end %>
-  </table>
-  <hr>
-  <br>
+<h1>SHAPESHIFT</h1>
+<table class="table">
+   <thead>
+     <tr>
+       <th>FX</th>
+       <th>Price</th>
+     </tr>
+   </thead>
+     <% @mega_array1.each_with_index do |x, index| %>
+   <tr>
+     <td><%= @mega_array1[index] %></td>
+     <td><%= @mega_array2[index] %></td>
+   </tr>
+   <% end %>
+ </table>
+<hr>
 
 
-  <h1>BOOK:  XRP-MXN</h1>
-  <h4>Updated:</h4>
-  <p><%= @updated_xrp %></p>
-  <h4>BIDS:</h4>
-  <h4>Highest: <%= @bids_prices_xrp.max %></h4>
-  <p><%= @bids_prices_xrp %></p>
-  <h4>ASKS:</h4>
-  <h4>Lowest: <%= @asks_prices_xrp.min %></h4>
-  <p><%= @asks_prices_xrp %></p>
- <hr>
- <br>
+<h1>Arbitraje</h1>
+<table class="table table-striped">
+ <thead>
+   <tr>
+     <th>FX</th>
+     <th>Cambio1</th>
+     <th>Resultado</th>
+     <th>Cambio2</th>
+     <th>Resultado2</th>
+     <th>Cambio3</th>
+     <th>Resultado3</th>
 
-  <h1>Trades (Last 10)</h1>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>FX</th>
-        <th>Date</th>
-        <th>Amount</th>
-        <th>Price</th>
-        <th>Maker Side</th>
-        <th>Trade ID</th>
-      </tr>
-    </thead>
-      <% @fx_xrp.length.times do |x| %>
-    <tr>
-      <td><%= @fx_xrp[x].upcase %></td>
-      <td><%= @date_xrp[x] %></td>
-      <td><%= @amount_xrp[x] %></td>
-      <td><%= @price_xrp[x] %></td>
-      <td><%= @maker_side_xrp[x].capitalize %></td>
-      <td><%= @trade_id_xrp[x] %></td>
-    </tr>
-    <% end %>
-  </table>
-  <hr>
-  <br>
+   </tr>
+ </thead>
+ <tr>
+  <td>BTC-> ETH -> BTC 1</td>
+  <td>A Ether en SS</td> <td><%= @a = @mega_array2[0] %>ETH</td>
+  <td>A BTC en BITSO</td> <td><%= @a * @last[4] %>BTC</td>
+ </tr>
+ <tr>
+  <td>BTC-> ETH -> BTC 2</td>
+  <td>A Ether en BITSO </td> <td> <%= @g = 1/@last[4] %>ETH</td>
+  <td>A BTC en SS </td> <td><%= @g * @mega_array2[1] %>BTC</td>
+ </tr>
+ <tr>
+  <td>BTC -> XRP -> BTC 1</td>
+  <td>A XRP en SS </td> <td> <%= @b = @mega_array2[3] %>XRP</td>
+  <td>A BTC en BITSO </td> <td><%= @b * @last[2] %>BTC</td>
+ </tr>
+ <tr>
+  <td>BTC -> XRP -> BTC 2</td>
+  <td>A XRP en BITSO </td> <td> <%= @h = 1/@last[2] %>XRP</td>
+  <td>A BTC en SS </td> <td><%= @h * @mega_array2[2] %>BTC</td>
+ </tr>
+ <tr>
+  <td>ETH -> BTC -> ETH 1</td>
+  <td>A BTC en SS </td> <td> <%= @c = @mega_array2[1] %>BTC</td>
+  <td>A ETH en BITSO </td> <td><%= @c * 1/@last[4] %>ETH</td>
+ </tr>
+ <tr>
+  <td>ETH -> BTC -> ETH 2</td>
+  <td>A BTC en BITSO </td> <td> <%= @i = @last[4] %>BTC</td>
+  <td>A ETH en SS </td> <td><%= @i * @mega_array2[0] %>ETH</td>
+ </tr>
+ <tr>
+  <td>ETH -> XRP -> BTC -> ETH 1</td>
+  <td>A XRP en SS </td> <td> <%= @d = @mega_array2[5] %>XRP</td>
+  <td>A BTC en BITSO </td> <td><%= @d = @d * @last[2] %>BTC</td>
+  <td>A ETH en BITSO </td> <td><%= @d * 1/@last[4] %>ETH</td>
+ </tr>
+ <tr>
+  <td>ETH -> XRP -> BTC -> ETH 2</td>
+  <td>A XRP en SS </td> <td> <%= @j = @mega_array2[5] %>XRP</td>
+  <td>A BTC en BITSO </td> <td><%= @j = @j * @last[2] %>BTC</td>
+  <td>A ETH en SS </td> <td><%= @j * @mega_array2[0] %>ETH</td>
+ </tr>
+ <tr>
+  <td>XRP -> BTC -> XRP 1</td>
+  <td>A BTC en SS </td> <td> <%= @e = @mega_array2[2] %> BTC</td>
+  <td>A XRP en BITSO </td> <td><%= @e = @e * 1/@last[2] %>XRP</td>
+ </tr>
+ <tr>
+  <td>XRP -> BTC -> XRP 2</td>
+  <td>A BTC en BITSO </td> <td> <%= @k = @last[2] %> BTC</td>
+  <td>A XRP en SS </td> <td><%= @k = @k * @mega_array2[3] %>XRP</td>
+ </tr>
+ <tr>
+  <td>XRP -> ETH -> BTC -> XRP 1</td>
+  <td>A ETH en SS </td> <td> <%= @f = @mega_array2[4] %> ETH</td>
+  <td>A BTC en BITSO </td> <td><%= @f = @f * @last[4] %>BTC</td>
+  <td>A XRP en BITSO </td> <td><%= @f = @f * 1/@last[2] %>XRP</td>
+ </tr>
+ <tr>
+  <td>XRP -> ETH -> BTC -> XRP 2</td>
+  <td>A ETH en SS </td> <td> <%= @l = @mega_array2[4] %> ETH</td>
+  <td>A BTC en SS </td> <td><%= @l = @l * @mega_array2[1] %>BTC</td>
+  <td>A XRP en BITSO </td> <td><%= @l = @l * 1/@last[2] %>XRP</td>
+ </tr>
+
+</table>
 
 </div>

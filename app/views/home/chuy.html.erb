@@ -1,0 +1,146 @@
+<%= flash[:message] %>
+
+<!-- <br>
+<h1>Books</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>FX</th>
+      <th>Minimum price</th>
+      <th>Maximum price</th>
+      <th>Minimum amount</th>
+      <th>Maximum amount</th>
+    </tr>
+  </thead>
+    <% @fx.length.times do |x| %>
+  <tr>
+    <td><%= @fx[x].upcase %></td>
+    <td><%= @minimum_price[x] %></td>
+    <td><%= @maximum_price[x] %></td>
+    <td><%= @minimum_amount[x] %></td>
+    <td><%= @maximum_amount[x] %></td>
+  </tr>
+  <% end %>
+</table>
+<hr>
+<br> -->
+
+<h1>BOOK:  BTC-MXN</h1>
+<h4>Updated:</h4>
+<p><%= @updated_btc %></p>
+<h4>BIDS:</h4>
+<h4>Highest: <%= @bids_prices_btc.max %></h4>
+<p><%= @bids_prices_btc %></p>
+<h4>ASKS:</h4>
+<h4>Lowest: <%= @asks_prices_btc.min %></h4>
+<p><%= @asks_prices_btc %></p>
+<!-- <%= line_chart [[["date0"], 3],
+               [["date1"], 9],
+               [["date2"], 5],
+               [["date3"], 2]]%> -->
+<hr>
+<br>
+
+<h1>Trades (Last 10)</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>FX</th>
+      <th>Date</th>
+      <th>Amount</th>
+      <th>Price</th>
+      <th>Maker Side</th>
+      <th>Trade ID</th>
+    </tr>
+  </thead>
+    <% @fx_btc.length.times do |x| %>
+  <tr>
+    <td><%= @fx_btc[x].upcase %></td>
+    <td><%= @date_btc[x] %></td>
+    <td><%= @amount_btc[x] %></td>
+    <td><%= @price_btc[x] %></td>
+    <td><%= @maker_side_btc[x].capitalize %></td>
+    <td><%= @trade_id_btc[x] %></td>
+  </tr>
+  <% end %>
+</table>
+<hr>
+<br>
+
+
+<h1>BOOK:  ETH-MXN</h1>
+<h4>Updated:</h4>
+<p><%= @updated_eth %></p>
+<h4>BIDS:</h4>
+<h4>Highest: <%= @bids_prices_eth.max %></h4>
+<p><%= @bids_prices_eth %></p>
+<h4>ASKS:</h4>
+<h4>Lowest: <%= @asks_prices_eth.min %></h4>
+<p><%= @asks_prices_eth %></p>
+<hr>
+<br>
+
+<h1>Trades (Last 10)</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>FX</th>
+      <th>Date</th>
+      <th>Amount</th>
+      <th>Price</th>
+      <th>Maker Side</th>
+      <th>Trade ID</th>
+    </tr>
+  </thead>
+    <% @fx_eth.length.times do |x| %>
+  <tr>
+    <td><%= @fx_eth[x].upcase %></td>
+    <td><%= @date_eth[x] %></td>
+    <td><%= @amount_eth[x] %></td>
+    <td><%= @price_eth[x] %></td>
+    <td><%= @maker_side_eth[x].capitalize %></td>
+    <td><%= @trade_id_eth[x] %></td>
+  </tr>
+  <% end %>
+</table>
+<hr>
+<br>
+
+
+<h1>BOOK:  XRP-MXN</h1>
+<h4>Updated:</h4>
+<p><%= @updated_xrp %></p>
+<h4>BIDS:</h4>
+<h4>Highest: <%= @bids_prices_xrp.max %></h4>
+<p><%= @bids_prices_xrp %></p>
+<h4>ASKS:</h4>
+<h4>Lowest: <%= @asks_prices_xrp.min %></h4>
+<p><%= @asks_prices_xrp %></p>
+<hr>
+<br>
+
+<h1>Trades (Last 10)</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>FX</th>
+      <th>Date</th>
+      <th>Amount</th>
+      <th>Price</th>
+      <th>Maker Side</th>
+      <th>Trade ID</th>
+    </tr>
+  </thead>
+    <% @fx_xrp.length.times do |x| %>
+  <tr>
+    <td><%= @fx_xrp[x].upcase %></td>
+    <td><%= @date_xrp[x] %></td>
+    <td><%= @amount_xrp[x] %></td>
+    <td><%= @price_xrp[x] %></td>
+    <td><%= @maker_side_xrp[x].capitalize %></td>
+    <td><%= @trade_id_xrp[x] %></td>
+  </tr>
+  <% end %>
+</table>
+<hr>
+<br>
