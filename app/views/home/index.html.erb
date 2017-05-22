@@ -1,5 +1,5 @@
 <div class="container">
-
+<%= flash[:message] %>
   <!-- <br>
   <h1>Books</h1>
   <table class="table">
@@ -30,25 +30,25 @@
      <thead>
        <tr>
          <th>FX</th>
-         <th>Volume</th>
-         <th>High</th>
          <th>Last</th>
+         <th>High</th>
          <th>Low</th>
-         <th>Average</th>
          <th>Ask</th>
          <th>Bid</th>
+         <th>Average</th>
+         <th>Volume</th>
        </tr>
      </thead>
        <% @fy.length.times do |x| %>
      <tr>
        <td><%= @fy[x].upcase %></td>
-       <td><%= @volume[x] %></td>
-       <td><%= @high[x] %></td>
        <td><%= @last[x] %></td>
+       <td><%= @high[x] %></td>
        <td><%= @low[x] %></td>
-       <td><%= @average[x] %></td>
        <td><%= @ask[x] %></td>
        <td><%= @bid[x] %></td>
+       <td><%= @average[x] %></td>
+       <td><%= @volume[x] %></td>
      </tr>
      <% end %>
    </table>
@@ -57,8 +57,7 @@
 
   <h1>BOOK:  BTC-MXN</h1>
   <h4>Updated:</h4>
-  <p><%= @updated %></p>
-  <br>
+  <p><%= @updated_btc %></p>
   <h4>BIDS:</h4>
   <h4>Highest: <%= @bids_prices_btc.max %></h4>
   <p><%= @bids_prices_btc %></p>
@@ -72,7 +71,7 @@
  <hr>
  <br>
 
-  <h1>Trades (Last 100)</h1>
+  <h1>Trades (Last 10)</h1>
   <table class="table">
     <thead>
       <tr>
@@ -101,17 +100,17 @@
 
   <h1>BOOK:  ETH-MXN</h1>
   <h4>Updated:</h4>
-  <p><%= @updated %></p>
-  <br>
+  <p><%= @updated_eth %></p>
   <h4>BIDS:</h4>
   <h4>Highest: <%= @bids_prices_eth.max %></h4>
   <p><%= @bids_prices_eth %></p>
   <h4>ASKS:</h4>
   <h4>Lowest: <%= @asks_prices_eth.min %></h4>
+  <p><%= @asks_prices_eth %></p>
  <hr>
  <br>
 
-  <h1>Trades (Last 100)</h1>
+  <h1>Trades (Last 10)</h1>
   <table class="table">
     <thead>
       <tr>
@@ -140,8 +139,7 @@
 
   <h1>BOOK:  XRP-MXN</h1>
   <h4>Updated:</h4>
-  <p><%= @updated %></p>
-  <br>
+  <p><%= @updated_xrp %></p>
   <h4>BIDS:</h4>
   <h4>Highest: <%= @bids_prices_xrp.max %></h4>
   <p><%= @bids_prices_xrp %></p>
@@ -151,7 +149,7 @@
  <hr>
  <br>
 
-  <h1>Trades (Last 100)</h1>
+  <h1>Trades (Last 10)</h1>
   <table class="table">
     <thead>
       <tr>

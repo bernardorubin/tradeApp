@@ -167,5 +167,34 @@ class HomeController < ApplicationController
     end
 
 
+
+
+
+
+    def trade_algorithm
+      @funds = 10000
+      @last_purchase = 41603.02
+      if @price_btc.first.to_i < @last_purchase
+        puts "Buy 5% of funds"
+        puts @price_btc.first.to_i
+        puts @last_purchase
+      elsif
+        puts @price_btc.first.to_i
+        puts @last_purchase
+        puts "Don't buy"
+      end
+    end
+
+    Thread.new do
+      while true do
+        trade_algorithm
+        sleep 1
+      end
+    end
+
+
+
+
+
   end
 end
